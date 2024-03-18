@@ -3,7 +3,9 @@
 namespace Tots\Device\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Tots\Core\Http\Resources\SuccessResource;
 use Tots\Device\Http\Requests\Device\StoreRequest;
+use Tots\Device\Http\Requests\Device\UpdateRequest;
 use Tots\Device\Http\Responses\Device\ShowResource;
 use Tots\Device\Http\Responses\DeviceResponse;
 use Tots\Device\Models\TotsDevice;
@@ -22,5 +24,11 @@ class DeviceController extends \Illuminate\Routing\Controller
     {
         $item = $this->repository->create($request->user()->id, $request->validated());
         return response()->json(ShowResource::make($item));
+    }
+
+    public function update($id, UpdateRequest $request)
+    {
+        $this->repository->updateByUser($id, $request->user()->id, $request->validated());
+        return response()->json(SuccessResource::make());
     }
 }
