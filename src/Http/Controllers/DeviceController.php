@@ -29,6 +29,12 @@ class DeviceController extends \Illuminate\Routing\Controller
     public function update($id, UpdateRequest $request)
     {
         $this->repository->updateByUser($id, $request->user()->id, $request->validated());
-        return response()->json(SuccessResource::make());
+        return response()->json(SuccessResource::make('Device updated'));
+    }
+
+    public function delete($id, Request $request)
+    {
+        $this->repository->removeByUserId($id, $request->user()->id);
+        return response()->json(SuccessResource::make('Device removed'));
     }
 }

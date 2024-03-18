@@ -32,8 +32,8 @@ class TotsDeviceRepository
         return $device;
     }
 
-    public function removeByUserId($userId)
+    public function removeByUserId($deviceId, $userId)
     {
-        TotsDevice::where('user_id', $userId)->delete();
+        TotsDevice::where('id', $deviceId)->where('user_id', $userId)->delete();
     }
 }
