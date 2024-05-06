@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('device_model')->nullable(true);
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('tots_user');
+            $table->foreign('user_id')->references('id')->on('tots_user')->onDelete('cascade');
             
         });
     }
