@@ -7,7 +7,6 @@ use Tots\Core\Http\Resources\SuccessResource;
 use Tots\Device\Http\Requests\Device\StoreRequest;
 use Tots\Device\Http\Requests\Device\UpdateRequest;
 use Tots\Device\Http\Responses\Device\ShowResource;
-use Tots\Device\Http\Responses\DeviceResponse;
 use Tots\Device\Models\TotsDevice;
 use Tots\Device\Repositories\TotsDeviceRepository;
 
